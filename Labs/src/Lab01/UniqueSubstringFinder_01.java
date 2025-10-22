@@ -24,7 +24,7 @@ public class UniqueSubstringFinder_01 {
         return res;
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         String s = longestUniqueSubstring("abcabcbb");
         System.out.println(s);
     }
