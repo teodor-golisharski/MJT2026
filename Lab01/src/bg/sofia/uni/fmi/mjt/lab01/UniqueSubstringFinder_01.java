@@ -1,4 +1,4 @@
-package Lab01;
+package bg.sofia.uni.fmi.mjt.lab01;
 
 public class UniqueSubstringFinder_01 {
     public static String longestUniqueSubstring(String s) {

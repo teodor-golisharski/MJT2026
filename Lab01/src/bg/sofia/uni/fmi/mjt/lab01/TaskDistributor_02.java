@@ -1,4 +1,4 @@
-package Lab01;
+package bg.sofia.uni.fmi.mjt.lab01;
 
 public class TaskDistributor_02 {
     public static int minDifference(int[] tasks) {
