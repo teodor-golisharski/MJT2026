@@ -34,15 +34,22 @@ public class ShowAPIImpl implements ShowAPI {
 
     @Override
     public void eliminateErgenkas(EliminationRule[] eliminationRules) {
-        for (EliminationRule er : eliminationRules) {
-            ergenkas = er.eliminateErgenkas(ergenkas);
+        if (eliminationRules.length > 0) {
+            for (EliminationRule er : eliminationRules) {
+                ergenkas = er.eliminateErgenkas(ergenkas);
+            }
+        } else {
+            for (EliminationRule er : defaultEliminationRules) {
+                ergenkas = er.eliminateErgenkas(ergenkas);
+            }
         }
+
     }
 
     @Override
     public void organizeDate(Ergenka ergenka, DateEvent dateEvent) {
         for (Ergenka e : ergenkas) {
-            if(Objects.equals(e.getName(), ergenka.getName())){
+            if (Objects.equals(e.getName(), ergenka.getName())) {
                 e.reactToDate(dateEvent);
             }
         }
