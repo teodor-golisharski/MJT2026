@@ -7,7 +7,6 @@ import bg.sofia.uni.fmi.mjt.show.ergenka.Ergenka;
 import java.util.Objects;
 
 public class ShowAPIImpl implements ShowAPI {
-
     private Ergenka[] ergenkas;
     private final EliminationRule[] defaultEliminationRules;
 
