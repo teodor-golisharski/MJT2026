@@ -1,6 +1,6 @@
-package bg.sofia.uni.fmi.mjt.lab01;
+package bg.sofia.uni.fmi.mjt.firstlab;
 
-public class UniqueSubstringFinder_01 {
+class UniqueSubstringFinder {
     public static String longestUniqueSubstring(String s) {
         int max = 0;
         StringBuilder sb = new StringBuilder();
@@ -15,7 +15,7 @@ public class UniqueSubstringFinder_01 {
             }
             sb.append(c);
 
-            if(sb.length() > max){
+            if (sb.length() > max) {
                 max = sb.length();
                 res = sb.toString();
             }

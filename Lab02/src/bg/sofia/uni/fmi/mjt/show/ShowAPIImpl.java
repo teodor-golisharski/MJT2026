@@ -33,16 +33,17 @@ public class ShowAPIImpl implements ShowAPI {
 
     @Override
     public void eliminateErgenkas(EliminationRule[] eliminationRules) {
-        if (eliminationRules.length > 0) {
-            for (EliminationRule er : eliminationRules) {
-                ergenkas = er.eliminateErgenkas(ergenkas);
-            }
-        } else {
-            for (EliminationRule er : defaultEliminationRules) {
-                ergenkas = er.eliminateErgenkas(ergenkas);
+        if (eliminationRules != null) {
+            if (eliminationRules.length > 0) {
+                for (EliminationRule er : eliminationRules) {
+                    ergenkas = er.eliminateErgenkas(ergenkas);
+                }
+            } else {
+                for (EliminationRule er : defaultEliminationRules) {
+                    ergenkas = er.eliminateErgenkas(ergenkas);
+                }
             }
         }
-
     }
 
     @Override

@@ -1,6 +1,6 @@
-package bg.sofia.uni.fmi.mjt.lab01;
+package bg.sofia.uni.fmi.mjt.firstlab;
 
-public class TaskDistributor_02 {
+class TaskDistributor {
     public static int minDifference(int[] tasks) {
         int total = 0;
         for (var task : tasks) {
@@ -24,11 +24,5 @@ public class TaskDistributor_02 {
         }
 
         return 0;
-    }
-
-
-    void main() {
-        int result = minDifference(new int[]{9, 1, 1, 1});
-        System.out.println(result);
     }
 }

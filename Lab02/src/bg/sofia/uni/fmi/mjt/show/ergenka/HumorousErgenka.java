@@ -47,7 +47,7 @@ public class HumorousErgenka implements Ergenka {
     public void reactToDate(DateEvent dateEvent) {
         int bonuses = 0;
         int duration = dateEvent.getDuration();
-        ;
+
         if (duration < 30) {
             bonuses -= 2;
         } else if (duration <= 90) {
