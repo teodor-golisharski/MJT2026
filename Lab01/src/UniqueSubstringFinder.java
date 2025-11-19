@@ -1,5 +1,3 @@
-package bg.sofia.uni.fmi.mjt.firstlab;
-
 class UniqueSubstringFinder {
     public static String longestUniqueSubstring(String s) {
         int max = 0;

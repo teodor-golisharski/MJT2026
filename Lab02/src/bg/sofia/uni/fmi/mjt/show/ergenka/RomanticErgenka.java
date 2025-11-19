@@ -10,13 +10,14 @@ public class RomanticErgenka implements Ergenka {
     private int rating;
     private String favoriteDateLocation;
 
-    public RomanticErgenka(String name, short age, int romanceLevel, int humorLevel, int rating, String favoriteDateLocation) {
+    public RomanticErgenka(String name, short age, int romanceLevel,
+                           int humorLevel, int rating, String favoriteDateLocation) {
         this.name = name;
         this.age = age;
         this.romanceLevel = romanceLevel;
         this.humorLevel = humorLevel;
         this.rating = rating;
-        this.favoriteDateLocation = favoriteDateLocation;
+        this.favoriteDateLocation = favoriteDateLocation == null ? "" : favoriteDateLocation;
     }
 
     @Override
@@ -55,7 +56,8 @@ public class RomanticErgenka implements Ergenka {
         } else if (dateEvent.getDuration() < 30) {
             bonuses -= 3;
         }
+        int change = Math.floorDiv(romanceLevel * 7, dateEvent.getTensionLevel());
 
-        rating = (romanceLevel * 7) / dateEvent.getTensionLevel() + (humorLevel / 3) + bonuses;
+        rating += change + Math.floorDiv(humorLevel, 3) + bonuses;
     }
 }

@@ -12,21 +12,34 @@ public class LowAttributeSumEliminationRule implements EliminationRule {
 
     @Override
     public Ergenka[] eliminateErgenkas(Ergenka[] ergenkas) {
+        if (ergenkas == null) {
+            return null;
+        }
+        if (ergenkas.length == 0) {
+            return ergenkas;
+        }
+
         int counter = 0;
         for (Ergenka e : ergenkas) {
-            if (e.getHumorLevel() + e.getRomanceLevel() < threshold) {
-                counter++;
+            if (e != null) {
+                if (e.getHumorLevel() + e.getRomanceLevel() < threshold) {
+                    counter++;
+                }
             }
         }
 
-        Ergenka[] res = new Ergenka[ergenkas.length - counter];
-        int index = 0;
-        for (Ergenka e : ergenkas) {
-            if (e.getHumorLevel() + e.getRomanceLevel() >= threshold) {
-                res[index++] = e;
+        if (ergenkas.length > 0) {
+            Ergenka[] res = new Ergenka[ergenkas.length - counter];
+            int index = 0;
+            for (Ergenka e : ergenkas) {
+                if (e != null) {
+                    if (e.getHumorLevel() + e.getRomanceLevel() >= threshold) {
+                        res[index++] = e;
+                    }
+                }
             }
+            return res;
         }
-
-        return  res;
+        return ergenkas;
     }
 }

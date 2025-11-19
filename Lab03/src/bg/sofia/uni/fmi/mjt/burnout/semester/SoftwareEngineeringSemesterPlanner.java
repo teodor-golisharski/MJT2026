@@ -8,7 +8,9 @@ public final class SoftwareEngineeringSemesterPlanner implements SemesterPlanner
     @Override
     public UniversitySubject[] calculateSubjectList(SemesterPlan semesterPlan)
             throws InvalidSubjectRequirementsException {
-        return new UniversitySubject[0];
+        UniversitySubject[] universitySubjects = semesterPlan.subjects();
+
+
     }
 
     @Override

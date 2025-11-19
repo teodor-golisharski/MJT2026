@@ -1,5 +1,3 @@
-package bg.sofia.uni.fmi.mjt.firstlab;
-
 class TaskDistributor {
     public static int minDifference(int[] tasks) {
         int total = 0;

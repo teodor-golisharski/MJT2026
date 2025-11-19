@@ -12,11 +12,22 @@ public class PublicVoteEliminationRule implements EliminationRule {
 
     @Override
     public Ergenka[] eliminateErgenkas(Ergenka[] ergenkas) {
+        if (ergenkas == null) {
+            return null;
+        }
+        if (ergenkas.length == 0) {
+            return ergenkas;
+        }
+        if (votes == null || votes.length == 0) {
+            return ergenkas;
+        }
+
         int[] counts = new int[ergenkas.length];
 
         for (String vote : votes) {
             for (int i = 0; i < ergenkas.length; i++) {
-                if (ergenkas[i].getName().equals(vote)) {
+                if (ergenkas[i] != null && ergenkas[i].getName() != null &&
+                        ergenkas[i].getName().equals(vote)) {
                     counts[i]++;
                 }
             }
@@ -38,7 +49,7 @@ public class PublicVoteEliminationRule implements EliminationRule {
         Ergenka[] res = new Ergenka[ergenkas.length - 1];
         int index = 0;
         for (int i = 0; i < ergenkas.length; i++) {
-            if(i != eliminateIndex){
+            if (i != eliminateIndex) {
                 res[index++] = ergenkas[i];
             }
         }
