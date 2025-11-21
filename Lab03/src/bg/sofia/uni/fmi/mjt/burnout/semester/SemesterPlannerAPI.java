@@ -4,7 +4,8 @@ import bg.sofia.uni.fmi.mjt.burnout.exception.InvalidSubjectRequirementsExceptio
 import bg.sofia.uni.fmi.mjt.burnout.plan.SemesterPlan;
 import bg.sofia.uni.fmi.mjt.burnout.subject.UniversitySubject;
 
-public sealed interface SemesterPlannerAPI permits ComputerScienceSemesterPlanner, SoftwareEngineeringSemesterPlanner {
+public sealed interface SemesterPlannerAPI
+        permits AbstractSemesterPlanner {
     UniversitySubject[] calculateSubjectList(SemesterPlan semesterPlan)
             throws InvalidSubjectRequirementsException;
 
