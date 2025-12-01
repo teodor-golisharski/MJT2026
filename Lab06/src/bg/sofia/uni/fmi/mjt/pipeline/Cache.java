@@ -31,6 +31,9 @@ public class Cache {
      * @throws IllegalArgumentException if key or value is null
      */
     public void cacheValue(Object key, Object value) {
+        if (key == null || value == null) {
+            throw new IllegalArgumentException("Key and value cannot be null");
+        }
         cache.put(key, value);
     }
 
@@ -42,6 +45,9 @@ public class Cache {
      * @throws IllegalArgumentException if key is null
      */
     public Object getCachedValue(Object key) {
+        if (key == null) {
+            throw new IllegalArgumentException("Key cannot be null");
+        }
         return cache.get(key);
     }
 
@@ -53,6 +59,9 @@ public class Cache {
      * @throws IllegalArgumentException if key is null
      */
     public boolean containsKey(Object key) {
+        if (key == null) {
+            throw new IllegalArgumentException("Key cannot be null");
+        }
         return cache.containsKey(key);
     }
 

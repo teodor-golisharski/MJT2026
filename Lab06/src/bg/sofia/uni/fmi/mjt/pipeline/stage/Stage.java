@@ -29,6 +29,9 @@ public final class Stage<I, O> {
      * @throws IllegalArgumentException if initialStep is null
      */
     public static <I, O> Stage<I, O> start(Step<I, O> initialStep) {
+        if(initialStep == null){
+            throw new IllegalArgumentException("Initial step cannot be null");
+        }
         return new Stage<>(List.of(initialStep));
     }
 
@@ -54,6 +57,9 @@ public final class Stage<I, O> {
      */
     @SuppressWarnings("checkstyle:MethodTypeParameterName")
     public <NEW_O> Stage<I, NEW_O> addStep(Step<? super O, NEW_O> step) {
+        if(step == null){
+            throw new IllegalArgumentException("Step cannot be null");
+        }
         steps.add(step);
         return (Stage<I, NEW_O>) this;
     }

@@ -32,6 +32,9 @@ public final class Pipeline<I, O> {
      * @throws IllegalArgumentException if initialStage is null
      */
     public static <I, O> Pipeline<I, O> start(Stage<I, O> initialStage) {
+        if(initialStage == null){
+            throw new IllegalArgumentException("Initial stage cannot be null");
+        }
         return new Pipeline<>(List.of(initialStage));
     }
 
