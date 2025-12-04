@@ -1,9 +1,11 @@
 package bg.sofia.uni.fmi.mjt.imagekit.algorithm.grayscale;
 
+import bg.sofia.uni.fmi.mjt.imagekit.utils.ApplicationConstants;
+
 import java.awt.image.BufferedImage;
 
 public class LuminosityGrayscale implements GrayscaleAlgorithm {
-    @SuppressWarnings("checkstyle:MagicNumber")
+
     @Override
     public BufferedImage process(BufferedImage image) {
         if (image == null) {
@@ -14,14 +16,18 @@ public class LuminosityGrayscale implements GrayscaleAlgorithm {
         for (int x = 0; x < image.getWidth(); x++) {
             for (int y = 0; y < image.getHeight(); y++) {
                 int rgb = image.getRGB(x, y);
-                int r = (rgb >> 16) & 0xFF;
-                int g = (rgb >> 8) & 0xFF;
-                int b = rgb & 0xFF;
+                int r = (rgb >> ApplicationConstants.RED_SHIFT) & ApplicationConstants.RGB_MASK;
+                int g = (rgb >> ApplicationConstants.GREEN_SHIFT) & ApplicationConstants.RGB_MASK;
+                int b = rgb & ApplicationConstants.RGB_MASK;
 
-                int luminance = Math.round(0.21f * r + 0.72f * g + 0.07f * b);
-                luminance = Math.min(255, Math.max(0, luminance));
+                int luminance = Math.round(ApplicationConstants.RED_COEFFICIENT * r
+                        + ApplicationConstants.GREEN_COEFFICIENT * g
+                        + ApplicationConstants.BLUE_COEFFICIENT * b);
+                luminance = Math.min(ApplicationConstants.LUMINANCE, Math.max(0, luminance));
 
-                int grayRGB = (luminance << 16) | (luminance << 8) | luminance;
+                int grayRGB = (luminance << ApplicationConstants.RED_SHIFT)
+                        | (luminance << ApplicationConstants.GREEN_SHIFT)
+                        | luminance;
                 result.setRGB(x, y, grayRGB);
             }
         }
